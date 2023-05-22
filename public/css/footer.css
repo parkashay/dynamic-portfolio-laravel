@@ -1,0 +1,51 @@
+.footer{
+    min-height: 300px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+}
+.contact-section{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  gap: 1rem;
+}
+.some-links{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    gap: 1rem;
+}
+.last-part{
+    width: 100%;
+    text-align: center;
+}
+.footer-link{
+    color: white;
+    font-weight: 600;
+}
+.rickroller{
+    padding: .5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: orange;
+    cursor:pointer;
+    transition: 0.5s ease all;
+}
+.rickroller:hover{
+    background-color: wheat;
+    box-shadow: 5px 5px 10px orange;
+    transform: translate(-2px, -2px);
+}
+@media screen and (max-width:600px) {
+    .contact-section{
+        width: 100%;
+    }
+    .some-links{
+        width: 100%;
+    }
+}
