@@ -1,5 +1,6 @@
 .navbar {
     padding: 1em;
+    width: 100%;
 }
 
 .name {
@@ -8,7 +9,7 @@
     cursor: pointer;
 }
 .name-hide{
-    color: black;
+    display: none;
 }
 
 .nav-items {
@@ -37,10 +38,11 @@
 .nav-link-res{
     display: flex !important;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     background-color: black;
-    width: 50%;
     text-align: right;
+    width: 100%;
+    align-items: center;
  }
 
 
@@ -56,5 +58,6 @@
         gap: .4em;
         margin: 1rem;
         cursor: pointer;
+        z-index: 10;
     }
 }

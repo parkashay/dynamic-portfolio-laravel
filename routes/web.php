@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,14 @@ Route::post('/verify', [AdminPageController::class, 'verify']);
 Route::get('/delete/{id}',[AdminPageController::class, 'delete']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::post('/addproject', [ProjectController::class, 'create']);
-Route::get('projectdelete/{id}', [ProjectController::class, 'delete']);
+Route::get('/projectdelete/{id}', [ProjectController::class, 'delete']);
+Route::get('/edit/{id}', [AdminPageController::class, 'edit']);
+Route::post('/update/{id}', [AdminPageController::class, 'update']);
+Route::get('/projectedit/{id}', [ProjectController::class, 'editProject']);
+Route::post('/updateproject/{id}', [ProjectController::class, 'updateProject']);
+Route::get('/tokens', [AdminPageController::class, 'tokens']);
+Route::get('/token/delete/{id}', [AdminPageController::class, 'deleteToken']);
+Route::post('/addkey', [AdminPageController::class, 'addkey']);
+Route::get('/manage/contact', [ContactController::class, 'index']);
+Route::post('/add/contact', [ContactController::class, 'create']);
+Route::get('/contact/delete/{id}', [ContactController::class, 'delete']);

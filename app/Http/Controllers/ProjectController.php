@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -40,6 +39,7 @@ class ProjectController extends Controller
     }
 
     public function delete($id){
+       if(session()->has('admin')){
         $data = Project::find($id);
         $img = public_path('uploads/'. $data->image);
         if(File::exists($img)){
@@ -48,5 +48,32 @@ class ProjectController extends Controller
         $data->delete();
         return redirect()->back()
         ->with('deleted', 'Project has been deleted');
+       }
+       else{
+        abort(404);
+       }
+    }
+
+    public function editProject($id){
+        $nav = [];
+        $project = Project::find($id);
+        return view('projectUpdate')
+        ->with('links', $nav)
+        ->with('project', $project);
+    }
+    public function updateProject(Request $request, $id){
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'tech' => 'required',
+            'link' => 'required'
+        ]);
+        $update = Project::where('id', $id)->update($validatedData);
+        if($update){
+            return redirect('/projects')->with('success', 'Update Successful');
+        }
+        else{
+            return redirect()->back()->with('fail', 'Update Failed');
+        }
     }
 }

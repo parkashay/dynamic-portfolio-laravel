@@ -1,0 +1,39 @@
+@extends('layout')
+@section('title', 'update')
+@section('navbar')
+    @include('components.navbar')
+@endsection
+
+@if (session()->has('admin'))
+    @section('content')
+        <div class="form-section">
+            <div class="form-title">Edit and Update</div>
+            <form action="/update/{{$editContent->id}}" method="POST" class="form">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li class="error">{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @csrf
+    
+                @if(session('fail'))
+                <div class="error">
+                    {{session('fail')}}
+                </div>
+                @endif
+                <select name="title" class="dropdown">
+                    <option value="{{ $editContent->title }}">{{ $editContent->title }}</option>
+                </select>
+                <textarea type="text" name="content" rows="5">{{ $editContent->content }}</textarea>
+                <button class="submit-btn" type="submit"> Submit</button>
+            </form>
+        </div>
+    @endsection
+@else
+    @section('content')
+        <div>You fo not have access to this page yet.
+            <a href="/auth" class="nav-link">click here</a>
+            to enter the pass key if you are an admin
+        </div>
+    @endsection
+@endif

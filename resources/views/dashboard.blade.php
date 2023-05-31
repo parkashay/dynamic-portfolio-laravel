@@ -8,6 +8,7 @@
 @if (session()->has('admin'))
     @section('content')
         <div class="form-section">
+            <div class="form-title">Add Content</div>
             @if (session('success'))
                 <div class="success">
                     {{ session('success') }}
@@ -22,21 +23,23 @@
                 @csrf
                 <select name="title" class="dropdown">
                     <option value="">Select a title</option>
+                    <option value="owner">Owner Name</option>
                     <option value="about">About Me</option>
                     <option value="skills">Add Skill</option>
                     <option value="education">Education</option>
+                    <option value="experience">Experience</option>
                 </select>
                 <textarea type="text" name="content" placeholder="content" rows="5"></textarea>
                 <button class="submit-btn" type="submit"> Submit</button>
             </form>
         </div>
         <div>
-            <a href="/projects" class="nav-link">Add a Project</a>
+            <a href="/projects" class="nav-link">Manage Projects</a>
+            <a href="/tokens" class="nav-link">Manage Tokens</a>
+            <a href="/manage/contact" class="nav-link">Manage Contact</a>
+
         </div>
         <div class="table-section">
-            @if (session('deleted'))
-                <span>{{ session('deleted') }}</span>
-            @endif
             <table>
                 <tr>
                     <th>id</th>
@@ -51,7 +54,9 @@
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->content }}</td>
                         <td>{{ $item->created_at }}</td>
-                        <td><a href="/delete/{{ $item->id }}" class="tbl-act">Delete</a></td>
+                        <td><a href="/delete/{{ $item->id }}" class="tbl-act-del">Delete</a>
+                            <a href="/edit/{{$item->id}}" class="tbl-act-edit">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
             </table>
@@ -62,7 +67,7 @@
     @section('content')
         <div>You fo not have access to this page yet.
             <a href="/auth" class="nav-link">click here</a>
-            to enter the pass key if you are a admin
+            to enter the pass key if you are an admin
         </div>
     @endsection
     

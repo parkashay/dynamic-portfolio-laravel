@@ -6,9 +6,10 @@
 
 @if (session()->has('admin'))
     @section('content')
-        <div class="project-up">
+        <div class="form-section">
+            <div class="form-title">Add a new project</div>
             @if (session('success'))
-                <div>{{ session('success') }}</div>
+                <div class="success">{{ session('success') }}</div>
             @endif
             <form action="/addproject" method="POST" class="form" enctype="multipart/form-data">
                 @csrf
@@ -45,7 +46,8 @@
                         <td>{{ $project->tech }}</td>
                         <td><a href="https://{{ $project->link }}" target="_blank">{{ $project->link }}</a></td>
                         <td>{{ $project->image }}</td>
-                        <td><a href="/projectdelete/{{ $project->id }}" class="tbl-act">Delete</a></td>
+                        <td><a href="/projectdelete/{{ $project->id }}" class="tbl-act-del">Delete</a>
+                            <a href="/projectedit/{{$project->id}}" class="tbl-act-edit">Edit</a></td>
                     </tr>
                 @endforeach
             </table>
@@ -53,6 +55,6 @@
     @endsection
 @else
     @section('content')
-        <div>You do not have access to this page yet. <a href="/auth" class="nav-link">click here</a> to enter the pass key if you are a admin</div>
+        <div>You do not have access to this page yet. <a href="/auth" class="nav-link">click here</a> to enter the pass key if you are an admin</div>
     @endsection
 @endif

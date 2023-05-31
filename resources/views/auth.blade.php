@@ -12,7 +12,7 @@
 @section('content')
 <form action="/verify" method="POST" class="keypass">
     @csrf
-    <input type="password" name="adminpass" placeholder="Enter Pass Key">
+    <input type="password" name="adminpass" placeholder="Enter token">
     @error('adminpass')
     <span class="error">{{$message}}</span>
     @enderror

@@ -10,10 +10,8 @@ class AdminPageController extends Controller
 {
     public function index()
     {
-        $links = [];
         $data = Content::all();
         return view('dashboard')
-            ->with('links', $links)
             ->with('data', $data);
     }
     public function newContent(Request $request)
@@ -45,9 +43,56 @@ class AdminPageController extends Controller
     }
     public function delete($id)
     {
+       if(session()->has('admin')){
         $row = Content::find($id);
         $row->delete();
         return redirect()->back()
-            ->with('deleted', 'Deleted Successfully');
+            ->with('success', 'Deleted Successfully');
+       }
+       else{
+        abort(404);
+       }
+    }
+    public function edit($id)
+    {
+        $editContent = Content::find($id);
+        return view('update')
+        ->with('editContent', $editContent);
+    }
+
+    public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+        $update = Content::where('id', $id)->update($validatedData);
+        if($update){
+            return redirect('/dashboard')->with('success', 'Update Successful');
+        }
+        else{
+            return redirect()->back()->with('fail', 'Update Failed');
+        }
+    }
+
+    public function tokens(){
+        $tokens = AdminPass::all();
+        return view('tokens')
+        ->with('tokens', $tokens);
+    }
+    public function addkey(Request $request){
+        $validatedData = $request->validate([
+            'keys' => 'required'
+        ]);
+        AdminPass::create($validatedData);
+        return redirect()->back();
+    }
+    public function deleteToken($id){
+        if(session()->has('admin')){
+            AdminPass::find($id)->delete();
+            return redirect()->back();
+        }
+        else{
+            abort(404);
+        }
     }
 }
