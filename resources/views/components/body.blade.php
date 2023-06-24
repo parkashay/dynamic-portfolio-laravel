@@ -1,5 +1,4 @@
 <div class="body">
-
     {{-- A short self description --}}
     @if (isset($about))
         <div class="tab-1">
@@ -87,3 +86,4 @@
         </div>
     @endif
 </div>
+
