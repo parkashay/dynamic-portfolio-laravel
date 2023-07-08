@@ -5,8 +5,8 @@
     flex-wrap: wrap;
 }
 #particles-js{
-    position: absolute;
-    height: 100%;
+    position: fixed;
+    height: 100vh;
     z-index: -1;
 }
 .tab-1 {
