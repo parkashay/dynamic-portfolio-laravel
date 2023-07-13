@@ -8,7 +8,7 @@
 .form-title {
     font-size: 2rem;
     font-weight: 600;
-    background-color: black;
+    background-color: #292929;
     width: fit-content;
     padding: 5px;
     transform: translate(0%, -50%);
@@ -22,26 +22,10 @@
     align-items: center;
     gap: 1em;
 }
-
-.dropdown {
-    padding-inline: 1rem;
-    font-size: 1.5rem;
-    background-color: gray;
-    border-radius: 0.5rem;
-    font-weight: 600;
+.input-field{
+    width: 50vw;
 }
 
-input,
-textarea {
-    width: 50%;
-    font-size: 2rem;
-}
-
-.submit-btn {
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
 
 .tbl-act-del,
 .tbl-act-edit {

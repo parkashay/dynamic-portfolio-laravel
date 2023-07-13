@@ -19,11 +19,23 @@
                     @foreach ($errors->all() as $error)
                         <li class="error">{{ $error }}</li>
                     @endforeach
-                    <input type="text" name="title" value="{{ $project->title }}" placeholder="title">
-                    <textarea name="description" rows="5" placeholder="Project Description">{{ $project->description }}</textarea>
-                    <input type="text" name="tech" value="{{ $project->tech }}" placeholder="tech used">
-                    <input type="text" name="link" value="{{ $project->link }}" placeholder="link">
-                    <input type="submit" value="Update">
+                    <div class="input-field">
+                        <input id="ptitle" type="text" name="title" value="{{ $project->title }}" class="white-text">
+                        <label for="ptitle">Project Title</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="pdesc" name="description"  class="materialize-textarea white-text">{{ $project->description }}</textarea>
+                        <label for="pdesc">Project Description</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="ptech" type="text" name="tech" value="{{ $project->tech }}" class="white-text">
+                        <label for="ptech">Tech Used</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="plink" type="text" name="link" value="{{ $project->link }}" class="white-text">
+                        <label for="plink">Project Link</label>
+                    </div>
+                    <input type="submit" value="Update" class="btn">
                 </form>
             </div>
         @endsection

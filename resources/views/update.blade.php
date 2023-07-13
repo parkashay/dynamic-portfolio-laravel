@@ -21,11 +21,17 @@
                     {{session('fail')}}
                 </div>
                 @endif
+               <div class="input-field">
                 <select name="title" class="dropdown">
                     <option value="{{ $editContent->title }}">{{ $editContent->title }}</option>
                 </select>
-                <textarea type="text" name="content" rows="5">{{ $editContent->content }}</textarea>
-                <button class="submit-btn" type="submit"> Submit</button>
+               </div>
+                
+               <div class="input-field">
+                <textarea id="cont" type="text" name="content" class="materialize-textarea white-text">{{ $editContent->content }}</textarea>
+                <label for="cont">Content</label>
+               </div>
+                <button class="btn" type="submit"> Submit</button>
             </form>
         </div>
     @endsection

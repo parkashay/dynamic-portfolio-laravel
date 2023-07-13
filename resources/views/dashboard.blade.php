@@ -21,16 +21,21 @@
                     @endforeach
                 </ul>
                 @csrf
-                <select name="title" class="dropdown">
-                    <option value="">Select a title</option>
-                    <option value="owner">Owner Name</option>
-                    <option value="about">About Me</option>
-                    <option value="skills">Add Skill</option>
-                    <option value="education">Education</option>
-                    <option value="experience">Experience</option>
-                </select>
-                <textarea type="text" name="content" placeholder="content" rows="5"></textarea>
-                <button class="submit-btn" type="submit"> Submit</button>
+                <div class="input-field">
+                    <select name="title" class="dropdown white-text">
+                        <option value="">Select a title</option>
+                        <option value="owner">Owner Name</option>
+                        <option value="about">About Me</option>
+                        <option value="skills">Add Skill</option>
+                        <option value="education">Education</option>
+                        <option value="experience">Experience</option>
+                    </select>
+                </div>
+                <div class="input-field">
+                    <textarea name="content" id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Content</label>
+                  </div>
+                <button class="btn" type="submit"> Submit</button>
             </form>
         </div>
         <div>

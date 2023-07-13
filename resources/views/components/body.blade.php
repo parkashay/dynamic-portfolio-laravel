@@ -2,6 +2,7 @@
     {{-- A short self description --}}
     @if (isset($about))
         <div class="tab-1">
+           
             {{ $about->content }}
         </div>
     @else
@@ -13,6 +14,8 @@
     {{-- Skills section --}}
     @if (isset($skills))
         <div class="tab-2">
+            <div class="left-down"></div>
+            <div class="right-up"></div>
             <div class="title">Skills and Knowledge</div>
             <ul>
                 @foreach ($skills as $skill)
@@ -58,6 +61,7 @@
         </div>
     @endif
 
+
     {{-- Projects and works --}}
     @if (isset($projects))
         <div class="tab-5">
@@ -65,9 +69,7 @@
             <div class="projects">
                 @foreach ($projects as $project)
                     <div class="project">
-                        <div class="img">
-                            <img src="{{ asset('uploads/' . $project->image) }}" alt="project image">
-                        </div>
+                        <img class="materialboxed" src="{{ asset('uploads/' . $project->image) }}" alt="project image">
                         <div class="project-info">
                             <div class="project-title">{{ $project->title }}</div>
                             <div class="project-description">{{ $project->description }}</div>
@@ -79,6 +81,9 @@
                     </div>
                 @endforeach
             </div>
+            <span class="all-projects-github"><a class="project-link"
+                    href="{{ env('GITHUB_LINK', 'https://example.com') }}" target="_blank">View More in
+                    Github</a></span>
         </div>
     @else
         <div class="tab-5">
@@ -86,4 +91,3 @@
         </div>
     @endif
 </div>
-

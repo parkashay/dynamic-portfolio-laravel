@@ -13,8 +13,11 @@
                 @foreach ($errors->all() as $error)
                     <li class="error">{{ $error }}</li>
                 @endforeach
-                <input type="text" name='keys' placeholder="enter new key">
-                <input type="submit" value="add key">
+                <div class="input-field">
+                    <label for="newkey">Enter New Key</label>
+                    <input id="newkey" type="text" name='keys' class="white-text">
+                </div>
+                <input type="submit" value="add key" class="btn">
             </form>
         </div>
         <div class="table-section">

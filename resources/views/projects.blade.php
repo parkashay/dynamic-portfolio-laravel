@@ -16,15 +16,29 @@
                 @foreach ($errors->all() as $error)
                     <li class="error">{{ $error }}</li>
                 @endforeach
-                <input type="text" name="title" placeholder="title">
-                <textarea name="description" rows="5" placeholder="Project Description"></textarea>
-                <input type="text" name="tech" placeholder="Tech used">
-                <input type="text" name="link" placeholder="link">
+                <div class="input-field">
+                    <input type="text" name="title" id="title" class="white-text">
+                    <label for="title">Title</label>
+                </div>
+
+                <div class="input-field">
+                    <textarea name="description" id="description" class="materialize-textarea white-text"></textarea>
+                    <label for="description">Description</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="tech" type="text" name="tech" class="white-text">
+                    <label for="tech">Tech Used</label>
+                </div>
+                <div class="input-field">
+                    <input id="link" type="text" name="link" class="white-text">
+                    <label for="link">Project Link</label>
+                </div>
                 <label class="image-uploader">
                     <span>Upload Image :</span>
                     <input type="file" name="image" accept="image/*">
                 </label>
-                <input type="submit">
+                <input type="submit" class="btn">
             </form>
         </div>
         <div class="table-section">
@@ -47,7 +61,8 @@
                         <td><a href="https://{{ $project->link }}" target="_blank">{{ $project->link }}</a></td>
                         <td>{{ $project->image }}</td>
                         <td><a href="/projectdelete/{{ $project->id }}" class="tbl-act-del">Delete</a>
-                            <a href="/projectedit/{{$project->id}}" class="tbl-act-edit">Edit</a></td>
+                            <a href="/projectedit/{{ $project->id }}" class="tbl-act-edit">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
             </table>
@@ -55,6 +70,7 @@
     @endsection
 @else
     @section('content')
-        <div>You do not have access to this page yet. <a href="/auth" class="nav-link">click here</a> to enter the pass key if you are an admin</div>
+        <div>You do not have access to this page yet. <a href="/auth" class="nav-link">click here</a> to enter the pass
+            key if you are an admin</div>
     @endsection
 @endif
