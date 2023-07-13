@@ -126,9 +126,16 @@ img {
     align-self: flex-end;
     box-shadow: var(--neumorphism);
 }
-
-ul {
-    list-style: outside;
+li{
+    display: flex;
+    align-items: center;
+}
+li::before{
+    display: inline-block;
+    content: "$";
+    margin-right: 5px;
+    font-size: 1rem;
+   
 }
 
 @media screen and (max-width: 700px) {
