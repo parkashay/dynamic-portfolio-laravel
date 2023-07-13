@@ -5,7 +5,7 @@
         @endforeach
     </div>
     <div class="some-links">
-        <button class="rickroller">ACTIVATE 3D ANIMATIONS</button>
+        <div class="rickroller">ACTIVATE 3D ANIMATIONS</div>
     </div>
     <div class="last-part">
         Made in laravel by <a href="/auth" class="footer-link">Prakash Poudel</a>
