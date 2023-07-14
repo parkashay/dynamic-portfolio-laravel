@@ -1,5 +1,5 @@
-:root{
-    --neumorphism : inset 2px 2px 2px #101010, inset -2px -2px 2px #424242;
+:root {
+    --neumorphism: 5px 5px 10px #1d4e27, -5px -5px 10px #2b7239;
 }
 .body {
     display: flex;
@@ -14,6 +14,13 @@
     z-index: -1;
 }
 
+.tab-1,
+.tab-2,
+.tab-3,
+.tab-4,
+.tab-5 {
+    border-radius: 10px;
+}
 .tab-1 {
     margin-bottom: 20px;
     text-align: center;
@@ -21,7 +28,6 @@
     font-weight: 600;
     padding: 10px;
     width: 100%;
-    border-radius: 0px;
     background: transparent;
     box-shadow: var(--neumorphism);
 }
@@ -49,7 +55,7 @@
     gap: 1rem;
     font-size: 1.3rem;
     background: transparent;
-    box-shadow:var(--neumorphism); 
+    box-shadow: var(--neumorphism);
 }
 
 .tab-4 {
@@ -93,13 +99,15 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background: linear-gradient(145deg, #252525, #2c2c2c);
-    box-shadow: var(--neumorphism)
+    background: transparent;
+    box-shadow: var(--neumorphism);
+    border-radius: 10px;
 }
 
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .project-info {
@@ -126,21 +134,21 @@ img {
     align-self: flex-end;
     box-shadow: var(--neumorphism);
 }
-li{
+li {
     display: flex;
     align-items: center;
 }
-li::before{
+li::before {
     display: inline-block;
     content: "$";
     margin-right: 5px;
     font-size: 1rem;
-   
 }
 
 @media screen and (max-width: 700px) {
     .body {
-        display: block;
+        flex-direction: column;
+        gap: 10px;
         padding: 0;
     }
     .tab-3,

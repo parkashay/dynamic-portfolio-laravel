@@ -2,7 +2,6 @@
     {{-- A short self description --}}
     @if (isset($about))
         <div class="tab-1">
-           
             {{ $about->content }}
         </div>
     @else
@@ -45,7 +44,7 @@
         </div>
     @endif
 
-
+    {{-- Experiences  --}}
     @if (isset($experience))
         <div class="tab-4">
             <div class="title">Experience</div>

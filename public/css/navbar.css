@@ -1,6 +1,15 @@
+header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
 .navbar {
-    padding: 1em;
+    padding: 0.7em;
     width: 100%;
+    box-shadow: var(--neumorphism);
+    margin-bottom: 20px;
+    background-color: #246030;
 }
 
 .name {
