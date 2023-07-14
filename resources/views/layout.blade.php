@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <header class="navbar">
+    <header>
         @yield('navbar')
     </header>
 
@@ -31,7 +31,6 @@
     <footer>
         @yield('footer')
     </footer>
-
 
     {{-- Scripts and Library imports --}}
     <script src="{{ asset('js/app.js') }}"></script>
