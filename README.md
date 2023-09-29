@@ -7,5 +7,3 @@
  - run `MySQL server` from XAMPP control panel.
  - migrate the database using command `php artisan migrate`.
  - run the app using command `php artisan serve`.
-
- ##### help me make good ui lol
